@@ -1,0 +1,4 @@
+<xsl:template name="strReplace">
+	<xsl:param name="param"/>
+	<xsl:value-of select="strClass:replaceAll($param, '\u0027', '')"/>
+</xsl:template>

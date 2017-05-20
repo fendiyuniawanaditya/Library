@@ -1,0 +1,24 @@
+Use below if you have sure the tags will be there.
+	BPEL 
+		boolean($input/xmltags/text());
+		string-length($input/xmltags);
+		
+	OSB 
+		fn:exists($input/xmltags/text());
+		
+if not sure, check availablity first.
+	BPEL 
+		count($input.payload/xmltags)
+		ora:countNodes('input', 'payload', '/process/input')
+		
+		sample xml used : 
+			<element name="process">
+                        <complexType>
+                                    <sequence>
+                                                <element name="input" type="string" minOccurs="0"/>
+                                    </sequence>
+                        </complexType>
+            </element>
+			
+	OSB 
+		fn:exists($input/xmltags);
